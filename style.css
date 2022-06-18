@@ -1,40 +1,57 @@
 @font-face {
     font-family: Ubuntu;
-    src: url(./ubuntu-font-family-0.83/ubuntu-font-family-0.83/Ubuntu-L.ttf);
+    font-weight: normal;
+    src: url(./assets/Ubuntu-L.ttf);
+}
+
+@font-face {
+    font-family: Ubuntu;
+    font-weight: bold;
+    src: url(./assets/Ubuntu-B.ttf);
+}
+
+*{
+    box-sizing: border-box;
 }
 
 body{
     display: flex;
-    flex-direction: row;
     height: 100vh;
     font-family: Ubuntu;
 }
 
 
 #hero{
-    width: 50vw;
+    flex: 1 1 30%;
+    border-right: 2px solid black;
+    background-image: url(./assets/ashkanarabim-horizon.svg);
+    background-repeat: no-repeat;
+    background-size: 110%;
+    background-position: center center;
 }
 
 #form{
-    border-left: 2px solid black;
-    padding: 0 10%;
+    flex: 1 1 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 30px;
+    padding: 50px;
 }
 
 h3{
-    font-weight: bold;
     font-size: 20px;
     line-height: 1.5em;
+    max-width: 900px;
 }
 
 form{
+    border: 1px dashed black;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
 }
 
 button{
@@ -52,7 +69,12 @@ button:hover{
 }
 
 button[type='submit'] {
-    margin: 30px 0 0 0;
+    margin: 40px 0 0 0;
+}
+
+a{
+    color: #999;
+    text-decoration: none;
 }
 
 fieldset{
@@ -80,4 +102,26 @@ fieldset p>label{
 input{
     width: 300px;
     height: 30px;
+    border-radius: 5px;
+    border: 1px solid #999;
+}
+
+
+
+@media (max-width: 1070px) {
+    body{
+        flex-direction: column;
+    }
+
+    #hero{
+        border-right: 0;
+        border-bottom: 2px solid black;
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 700px) {
+    fieldset>span{
+        flex-direction: column;
+    }
 }
