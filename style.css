@@ -106,7 +106,17 @@ input{
     border: 1px solid #999;
 }
 
+#github{
+    position: relative;
+    top: 3px;
+    width: 20px;
+    height: 20px;
+}
 
+#creds{
+    position: fixed;
+
+}
 
 @media (max-width: 1070px) {
     body{
