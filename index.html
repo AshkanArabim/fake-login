@@ -9,10 +9,6 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<!-- to do:
-make svg
- -->
-
 <body>
     <div id="hero">
     </div>
@@ -21,23 +17,23 @@ make svg
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut sed cumque facilis enim dignissimos maiores et similique laboriosam, ullam dolores.
         </h3>
         <h3>This is a dummy site. Clicking submit doesn't do anything.</h3>
-        <form>
+        <form onsubmit="return checker();">
             <fieldset>
                 <h3>Let's do this!</h3>
                 <span>
                     <p>
                         <label for="fname">FIRST NAME</label>
-                        <input type="text" id="fname">
+                        <input required type="text" id="fname">
                     </p>
                     <p>
                         <label for="lname">LAST NAME</label>
-                        <input type="text" id="lname">
+                        <input required type="text" id="lname">
                     </p>
                 </span>
                 <span>
                     <p>
                         <label for="email">EMAIL</label>
-                        <input type="email" id="email">
+                        <input required type="email" id="email">
                     </p>
                     <p>
                         <label for="phnum">PHONE NUMBER</label>
@@ -55,6 +51,7 @@ make svg
                     </p>
                 </span>
             </fieldset>
+            <p id="message"></p>
             <button>Create Account</button>
         </form>
         <p>Already have an account? <a href="./index.html">Log in</a></p>
@@ -69,10 +66,24 @@ make svg
     </p>
 
     <script>
-        document.querySelector('form').addEventListener('submit', e => {
-            document.getElementById('pwd').classList.add('no-match');
-            document.getElementById('conf-pwd').classList.add('no-match');
-        })
+        const pwd = document.querySelector('#pwd')
+        const confpwd = document.querySelector('#conf-pwd')
+        const message = document.querySelector('#message')
+
+        document.querySelector('#conf-pwd').addEventListener('keyup', checker)
+        document.querySelector('#pwd').addEventListener('keyup', checker)
+
+        function checker() {
+            if (pwd.value !== confpwd.value){
+                pwd.classList.add('no-match');
+                confpwd.classList.add('no-match');
+                message.textContent = "Passwords don't match"
+                return false;
+            } else {
+                pwd.classList.remove('no-match')
+                confpwd.classList.remove('no-match')
+                message.textContent = ""
+            }}
     </script>
 </body>
 </html>
