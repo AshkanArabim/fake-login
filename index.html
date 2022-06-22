@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>fake ashkan.arabim</title>
+    <title>fake login</title>
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -21,23 +21,23 @@ make svg
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut sed cumque facilis enim dignissimos maiores et similique laboriosam, ullam dolores.
         </h3>
         <h3>This is a dummy site. Clicking submit doesn't do anything.</h3>
-        <form action="get">
+        <form>
             <fieldset>
                 <h3>Let's do this!</h3>
                 <span>
                     <p>
                         <label for="fname">FIRST NAME</label>
-                        <input required type="text" id="fname">
+                        <input type="text" id="fname">
                     </p>
                     <p>
                         <label for="lname">LAST NAME</label>
-                        <input required type="text" id="lname">
+                        <input type="text" id="lname">
                     </p>
                 </span>
                 <span>
                     <p>
                         <label for="email">EMAIL</label>
-                        <input required type="email" id="email">
+                        <input type="email" id="email">
                     </p>
                     <p>
                         <label for="phnum">PHONE NUMBER</label>
@@ -55,7 +55,7 @@ make svg
                     </p>
                 </span>
             </fieldset>
-            <button type="submit">Create Account</button>
+            <button>Create Account</button>
         </form>
         <p>Already have an account? <a href="./index.html">Log in</a></p>
     </div>
@@ -67,5 +67,12 @@ make svg
         <br>
         this site has a responsive UI
     </p>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', e => {
+            document.getElementById('pwd').classList.add('no-match');
+            document.getElementById('conf-pwd').classList.add('no-match');
+        })
+    </script>
 </body>
 </html>
